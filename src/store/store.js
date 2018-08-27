@@ -6,6 +6,6 @@ const initialState = {};
 
 const middleware = [thunk];
 
-const store = createStore(userReducers, initialState, applyMiddleware(...middleware));
+const store = createStore(userReducers, initialState, applyMiddleware(thunk));
 
 export default store;

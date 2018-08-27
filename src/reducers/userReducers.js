@@ -9,9 +9,10 @@ export default (state = initialState, action) => {
     switch(action.type) {
         case FETCH_USER_INFO:
             console.log("reducer for fetch user info");
+            console.log("state", state)
             return {
                 ...state,
-                userInfo: action.payload
+                users: action.payload
             }
         case ADD_NEW_USER:
             console.log("reducer to ADD NEW USER")
@@ -26,6 +27,7 @@ export default (state = initialState, action) => {
             user: action.payload
         }
         default:
+            console.log("hitting default");
             return state;
     }
 }

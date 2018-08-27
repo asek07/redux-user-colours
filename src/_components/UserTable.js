@@ -9,35 +9,22 @@ class UserTable extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            myUsers: []
-        }
     }
 
     componentWillMount() {
-        // this.props.getUserInfo();
-        this.populateUser()
+       let mydata = this.props.getUserInfo();
         
-
-        // console.log(this.state.myUsers)
-        // console.log(this.props.getUserInfo())
-        // console.log(this.props.userInfo);
+       console.log(mydata);
+        console.log(this.props.getUserInfo())
+        console.log("Users", this.props.users);
     }
-
-    populateUser(){
-        this.setState({
-            myUsers: this.props.getUserInfo()
-        })
-        console.log(this.props.userInfo)
-    }
-
 
     render() {
         
         return (
             <div>
                 <p>hey</p>
-            {this.state.myUsers}
+            
             </div>
         );
     }
@@ -45,12 +32,12 @@ class UserTable extends Component {
 
 UserTable.propTypes = {
     getUserInfo: PropTypes.func.isRequired,
-    userInfo: PropTypes.array.isRequired,
+    users: PropTypes.array.isRequired,
     user: PropTypes.object
 }
 
 const mapStateToProps = state => ({
-    userInfo: state.userInfo.users,
+    users: state.userInfo.users,
     user: state.userInfo.user
 })
 
