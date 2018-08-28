@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import UserTable from './_components/UserTable';
 import AddUserForm from './_components/AddUserForm';
+import Header from './_components/Header';
 class App extends Component {
 
   constructor() {
@@ -17,10 +18,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+       <Header />
         <AddUserForm />
        <UserTable />
       </div>

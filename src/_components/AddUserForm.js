@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import {addUser} from '../actions/userActions';
 
+
 class AddUserForm extends Component {
 
     constructor(props) {
@@ -43,23 +44,27 @@ class AddUserForm extends Component {
 
         this.props.addUser(user);
 
-
     }
 
     render() {
+
         return (
-            <div>
-                <form>
-                    <div>
-                        <label>Name</label>
-                        <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+            <div className="container">
+               <div className="row">
+                   <div className="col-lg-6 col-md-6">
+                   <form>
+                    <div className="form-group">
+                        <h4 className="text-left">Name</h4>
+                        <input type="text" className="form-control" value={this.state.name} onChange={this.handleNameChange} />
                     </div>
-                    <div>
-                        <label>Favourite Colour</label>
-                        <input type="text" value={this.state.fave_colour} onChange={this.handleColourChange} />
+                    <div className="form-group">
+                       <h4 className="text-left">Favourite Colour</h4>
+                        <input type="text" className="form-control" value={this.state.fave_colour} onChange={this.handleColourChange} />
                     </div>
-                    <input type="button" value="Add User" onClick={this.addNewUser}/>
+                    <input type="button" className="btn btn-primary" value="Add User" onClick={this.addNewUser} />
                 </form>
+                   </div>
+               </div>
             </div>
         );
     }

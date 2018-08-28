@@ -14,8 +14,20 @@
   color: white;
 }
 
+.navbar-header-radius {
+  border-radius: 0px !important;
+}
+
 .App-title {
   font-size: 1.5em;
+}
+
+.padding-10 {
+  padding: 10px !important;
+}
+
+.width-full {
+  width: 100%;
 }
 
 .App-intro {

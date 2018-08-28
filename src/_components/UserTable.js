@@ -38,12 +38,13 @@ class UserTable extends Component {
         })
 
         return (
-            <div>
-                <table>
+            <div className="container">
+            <hr/>
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Fave Colour</th>
+                            <th>Favourite Colour</th>
                         </tr>
                     </thead>
                     <tbody>
