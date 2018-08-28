@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import {getUserInfo, deleteUser} from '../actions/userActions';
+import {getUserInfo, deleteUser, cleanState} from '../actions/userActions';
 import UserRow from './UserRow';
 import store from '../store/store';
 
@@ -15,7 +15,10 @@ class UserTable extends Component {
     }
 
     componentWillMount() {
-        this.props.getUserInfo();
+       // this.props.cleanState();
+       console.log("STORE STATE NOW", store.getState())
+        //this.props.getUserInfo();
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,7 +37,7 @@ class UserTable extends Component {
         console.log("HERE", this.props.users);
         console.log("PROPS", this.props);
         const userData = this.props.users.map((user) => {
-            return <UserRow key={user.user_id} name={user.name} faveColour={user.fave_colour} delete={() => this.handleDelete(user.user_id)}/>
+            return <UserRow key={user.user_id} userID={user.user_id} name={user.name} faveColour={user.fave_colour} delete={() => this.handleDelete(user.user_id)}/>
         })
 
         return (
@@ -58,6 +61,7 @@ class UserTable extends Component {
 
 UserTable.propTypes = {
     getUserInfo: PropTypes.func.isRequired,
+    cleanState: PropTypes.func.isRequired,
     deleteUser: PropTypes.func.isRequired,
     users: PropTypes.array.isRequired,
     user: PropTypes.object
@@ -70,4 +74,4 @@ const mapStateToProps = state => (
     user: state.userInfo.user
 })
 
-export default connect(mapStateToProps, {getUserInfo, deleteUser})(UserTable);
+export default connect(mapStateToProps, {getUserInfo, deleteUser, cleanState})(UserTable);

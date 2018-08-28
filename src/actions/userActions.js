@@ -1,4 +1,4 @@
-import {FETCH_USER_INFO, ADD_NEW_USER, DELETE_USER} from './types';
+import {FETCH_USER_INFO, ADD_NEW_USER, DELETE_USER, MODIFY_USER, CLEAN_STATE} from './types';
 import axios from 'axios';
 
 export const getUserInfo = () => dispatch => {
@@ -27,4 +27,20 @@ export const deleteUser = (userID) => dispatch => {
         type: DELETE_USER,
         payload: userID
     }))
+}
+
+export const updateUser = (user) => dispatch => {
+    axios.post('http://localhost:8080/users/addUser?name=' + user.name + '&fave_colour=' + user.fave_colour)
+    .then(res => res)
+    .then(user => dispatch({
+        type: MODIFY_USER,
+        payload: user
+    }));
+}
+
+export const cleanState = () => dispatch => {
+    dispatch({
+        type: CLEAN_STATE,
+        payload: null
+    })
 }

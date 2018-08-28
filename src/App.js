@@ -7,6 +7,8 @@ import store from './store/store';
 import UserTable from './_components/UserTable';
 import AddUserForm from './_components/AddUserForm';
 import Header from './_components/Header';
+
+
 class App extends Component {
 
   constructor() {
@@ -19,8 +21,10 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
        <Header />
-        <AddUserForm />
+       <AddUserForm />
        <UserTable />
+
+
       </div>
       </Provider>
     );

@@ -1,4 +1,4 @@
-import {FETCH_USER_INFO, ADD_NEW_USER, DELETE_USER} from '../actions/types'
+import {FETCH_USER_INFO, ADD_NEW_USER, DELETE_USER, MODIFY_USER, CLEAN_STATE} from '../actions/types'
 
 const initialState = {
     users: [],
@@ -24,6 +24,18 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.filter(user => action.payload !== user.user_id)
+            }
+        case MODIFY_USER:
+            console.log("modify reducer");
+            return {
+                ...state,
+                user: action.payload
+            }
+        case CLEAN_STATE:
+            console.log("modify reducer");
+            return {
+                ...state,
+                users: action.payload
             }
         default:
             console.log("hitting her")
