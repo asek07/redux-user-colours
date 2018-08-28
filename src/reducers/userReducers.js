@@ -9,7 +9,6 @@ export default (state = initialState, action) => {
     switch(action.type) {
         case FETCH_USER_INFO:
             console.log("reducer for fetch user info");
-            console.log("state", state)
             return {
                 ...state,
                 users: action.payload
@@ -21,13 +20,13 @@ export default (state = initialState, action) => {
                 user: action.payload
             }
         case DELETE_USER:
-        console.log("delete reducer")
-        return {
-            ...state,
-            user: action.payload
-        }
+            console.log("delete reducer")
+            return {
+                ...state,
+                
+            }
         default:
-            console.log("hitting default");
+            console.log("hitting her")
             return state;
     }
 }
