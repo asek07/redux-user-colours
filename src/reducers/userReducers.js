@@ -20,10 +20,10 @@ export default (state = initialState, action) => {
                 user: action.payload
             }
         case DELETE_USER:
-            console.log("delete reducer")
+            console.log("delete reducer");
             return {
                 ...state,
-                
+                users: state.users.filter(user => action.payload !== user.user_id)
             }
         default:
             console.log("hitting her")

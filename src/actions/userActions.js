@@ -25,6 +25,6 @@ export const deleteUser = (userID) => dispatch => {
     .then(res => res)
     .then(user => dispatch({
         type: DELETE_USER,
-        payload: user
+        payload: userID
     }))
 }

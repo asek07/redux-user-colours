@@ -25,18 +25,14 @@ class UserTable extends Component {
         }
     }
 
-    componentDidUpdate(){
-        //this.props.getUserInfo();
-    }
-
     handleDelete(userID) {
         console.log("Hitting delete with userID=" + userID);
         this.props.deleteUser(userID);
-        this.props.getUserInfo();
     }
 
     render() {
-
+        console.log("HERE", this.props.users);
+        console.log("PROPS", this.props);
         const userData = this.props.users.map((user) => {
             return <UserRow key={user.user_id} name={user.name} faveColour={user.fave_colour} delete={() => this.handleDelete(user.user_id)}/>
         })
@@ -54,7 +50,6 @@ class UserTable extends Component {
                         {userData}
                     </tbody>
                 </table>
-            
             </div>
         );
     }
@@ -68,7 +63,7 @@ UserTable.propTypes = {
 }
 
 const mapStateToProps = state => (
-    console.log(state),
+    console.log("state printing again",state),
     {
     users: state.userInfo.users,
     user: state.userInfo.user
