@@ -27,9 +27,15 @@ export default (state = initialState, action) => {
             }
         case MODIFY_USER:
             console.log("modify reducer");
+            console.log(action.payload);
+            state.users.map((user, i) => {
+                if(user.user_id === action.payload.data.user_id){
+                    state.users[i] = action.payload.data;
+                }
+            });
             return {
                 ...state,
-                user: action.payload
+                users: state.users
             }
         case CLEAN_STATE:
             console.log("modify reducer");

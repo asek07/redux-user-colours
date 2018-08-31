@@ -33,7 +33,7 @@ class AddUserForm extends Component {
     }
 
     addNewUser(e) {
-        e.preventDefault;
+        e.preventDefault();
         console.log("add user clicked");
 
         const user = {

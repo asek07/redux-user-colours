@@ -1,9 +1,10 @@
 import {FETCH_USER_INFO, ADD_NEW_USER, DELETE_USER, MODIFY_USER, CLEAN_STATE} from './types';
+import {API_BASE_URL} from '../constants';
 import axios from 'axios';
 
 export const getUserInfo = () => dispatch => {
     console.log("get user info");
-    axios.get("http://localhost:8080/allusers")
+    axios.get(API_BASE_URL + "/allusers")
     .then(res => res)
     .then(userData => dispatch({
         type: FETCH_USER_INFO,
@@ -12,7 +13,7 @@ export const getUserInfo = () => dispatch => {
 }
 
 export const addUser = (user) => dispatch  => {
-    axios.post('http://localhost:8080/users/addUser?name=' + user.name + '&fave_colour=' + user.fave_colour)
+    axios.post(API_BASE_URL + "/users/addUser?name=" + user.name + '&fave_colour=' + user.fave_colour)
     .then(res => res)
     .then(user => dispatch({
         type: ADD_NEW_USER,
@@ -21,7 +22,7 @@ export const addUser = (user) => dispatch  => {
 }
 
 export const deleteUser = (userID) => dispatch => {
-    axios.post('http://localhost:8080/user/delete/'+userID)
+    axios.post(API_BASE_URL + "/user/delete/" + userID)
     .then(res => res)
     .then(user => dispatch({
         type: DELETE_USER,
@@ -30,7 +31,7 @@ export const deleteUser = (userID) => dispatch => {
 }
 
 export const updateUser = (user) => dispatch => {
-    axios.post('http://localhost:8080/users/addUser?name=' + user.name + '&fave_colour=' + user.fave_colour)
+    axios.post(API_BASE_URL + "/users/updateUser?id=" + user.userID + "&name=" + user.name + '&fave_colour=' + user.fave_colour)
     .then(res => res)
     .then(user => dispatch({
         type: MODIFY_USER,

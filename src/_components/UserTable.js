@@ -17,7 +17,7 @@ class UserTable extends Component {
     componentWillMount() {
        // this.props.cleanState();
        console.log("STORE STATE NOW", store.getState())
-        //this.props.getUserInfo();
+        this.props.getUserInfo();
 
     }
 
@@ -67,9 +67,7 @@ UserTable.propTypes = {
     user: PropTypes.object
 }
 
-const mapStateToProps = state => (
-    console.log("state printing again",state),
-    {
+const mapStateToProps = state => ({
     users: state.userInfo.users,
     user: state.userInfo.user
 })
